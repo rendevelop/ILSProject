@@ -1,0 +1,39 @@
+* {margin: 0; padding: 0;}
+ 
+#results_pane {
+  margin: 20px;
+}
+ 
+#bib_results_list {
+  list-style-type: none;
+  width: 500px;
+}
+
+h1 {
+  font: bold 40x/1.5 Helvetica, Verdana, sans-serif;
+}
+
+.bib_entry h3 {
+  font: bold 20px/1.5 Helvetica, Verdana, sans-serif;
+}
+ 
+.bib_entry img {
+  float: left;
+  margin: 0 15px 0 0;
+  height: 150px;
+  width: 150px;
+}
+ 
+.bib_entry p {
+  font: 200 12px/1.5 Georgia, Times New Roman, serif;
+}
+ 
+.bib_entry {
+  padding: 10px;
+  overflow: auto;
+}
+ 
+div ul li.bib_entry:hover {
+  background: rgb(218, 188, 184);
+  cursor: pointer;
+}

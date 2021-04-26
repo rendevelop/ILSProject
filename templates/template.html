@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="{{ url_for('static', filename='stylesheets/styles.css') }}">
+    <title>Bibliographical Records</title>
+</head>
+<body>
+    <h1>Results</h1>
+    <label for="sort_method">Sort By:</label>
+    <select name="sort_method" id="sort_method">
+      <option value="ascending_alphabetical">Alphabetical (A-Z)</option>
+      <option value="descending_alphabetical" {% if sort_method == "descending_alphabetical" %} selected {% endif %}>Alphabetical (Z-A)</option>
+      <option value="descending_publish_date" {% if sort_method == "descending_publish_date" %} selected {% endif %}>Publish Date (Most Recent)</option>
+      <option value="ascending_publish_date" {% if sort_method == "ascending_publish_date" %} selected {% endif %}>Publish Date (Oldest)</option>
+    </select>
+    <div id="results_pane">
+        <ul id="bib_results_list">
+        {% for entry in bib_results %}
+          <li class="bib_entry">
+            <img src="{{ url_for('static', filename='images/book_image.png') }}" />
+            <h3>{{ entry.title }}</h3>
+            <p><i>by {{ entry.author }}</i></p>
+            <p>Published {{ entry.date_of_publication }}</p>
+            <p>ISBN: {{ entry.isbn }}</p>
+            <p>Call Number: {{ entry.call_number }}</p>
+          </li>
+        {% endfor %}
+        </ul>
+    </div>
+    <script src="{{ url_for('static', filename='scripts/SelectTagEventHandler.js') }}"></script>
+</body>
+</html>
